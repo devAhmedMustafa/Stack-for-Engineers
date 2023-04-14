@@ -3,6 +3,8 @@ from .serializers import *
 from .models import Question, Answer, Comment, QuestionLike, AnswerLike, Save
 from django.db.models import Count
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+
 
 def home(request):
 
@@ -12,7 +14,7 @@ def home(request):
     
     return render(request, 'home.html', {'user':user, 'questions':questions})
 
-
+@login_required
 def question(request, pk):
 
     user = request.user
@@ -45,7 +47,7 @@ def question(request, pk):
         }
     )
 
-
+@login_required
 def add_question(request):
 
     user = request.user
@@ -63,6 +65,7 @@ def add_question(request):
 
     return render(request, 'add_question.html')
 
+@login_required
 def post_answer(request):
 
     user = request.user
@@ -81,6 +84,7 @@ def post_answer(request):
     
     return JsonResponse(data)
 
+@login_required
 def post_comment(request):
 
     user = request.user
@@ -103,6 +107,7 @@ def post_comment(request):
     
     return JsonResponse(data)
 
+@login_required
 def saves(request):
 
     status = request.GET.get('status')
@@ -122,6 +127,7 @@ def saves(request):
 
     return JsonResponse(data)
 
+@login_required
 def reactions(request):
 
     status = request.GET.get('status')
@@ -142,6 +148,7 @@ def reactions(request):
 
     return JsonResponse(data)
 
+@login_required
 def answer_reactions(request):
 
     status = request.GET.get('status')
@@ -164,7 +171,7 @@ def answer_reactions(request):
 
     return JsonResponse(data)
 
-
+@login_required
 def get_like_status(request):
 
     pk = request.GET.get('pk')
