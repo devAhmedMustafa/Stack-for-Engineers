@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'stylesheets/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'stylesheets/main.css'%}">
+    <link rel="stylesheet" href="{% static 'stylesheets/home.css'%}">
+    {% block title %}{% endblock %}
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+
+        <img src="{% static 'SVGs/matlab-svgrepo-com.svg' %}" class="logo">
+
+        {% if user.is_authenticated %}
+            <section class="userlist">
+                <img src="{% static 'SVGs/user.svg' %}" width="30px">
+                {{user.username}}
+            </section>
+        {% else %}
+            <section class="links">
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'sign_up' %}">Sign up</a>
+            </section>
+        {% endif %}
+
+        <input type="search" placeholder="Search" id='search'>
+
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+{% block javascript %}{% endblock %}

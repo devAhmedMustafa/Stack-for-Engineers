@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}<title>Stack For Engineers | Ask Question</title>{% endblock %}
+
+{% block content %}
+<link rel='stylesheet' href="{% static 'stylesheets/add_question.css' %}">
+{% include 'navbar.html' %}
+
+<form method='post' class='ask_form'>
+    {% csrf_token %}
+    <h1>Ask a Question</h1>
+
+    <section class='title'>
+        <label for='title'>Title</label>
+        <h6>Type a title to be specific and clear for others</h6>
+        <input type='text' id='title' name='title' placeholder="Type Here..">
+    </section>
+
+    <section class='question_text'>
+        <label for='question_text'>Question details</label>
+        <h6>Explain your question as you can</h6>
+        <input type='text' id='question_text' name='question_text' placeholder="Type Here..">
+    </section>
+
+    <section class='subject'>
+        <label for='subject'>Subject</label>
+        <input type='text' id='subject' name='subject' placeholder="Type Here..">
+    </section>
+
+    <button type='submit'>Add Question</button>
+
+</form>
+
+{% endblock %}

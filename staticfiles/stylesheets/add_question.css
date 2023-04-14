@@ -1,0 +1,60 @@
+form{
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+}
+
+form input, .ask_form section{
+    border-radius: 3px;
+}
+
+form input{
+    padding: 5px;
+    width: 400px;
+    border: 1px solid rgb(196, 196, 196);
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+form input:focus{
+    outline: none;
+    box-shadow: 0px 0px 5px #1389d8;
+}
+
+form button{
+    width: fit-content;
+    padding: 6px;
+    margin-left: auto;
+    background-color: #1389d8;
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 3px;
+    border: none;
+}
+
+.ask_form section label{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.ask_form section h6{
+    font-size: small;
+    color:rgb(88, 88, 88);
+    font-weight: light;
+}
+
+.ask_form section{
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    border: 1px solid rgb(211, 211, 211);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 24px;
+}
+
+@media (max-width:600px) {
+    form input{
+        max-width: 330px;
+    }
+}

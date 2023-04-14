@@ -1,0 +1,57 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheets/authentications.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+
+      <span class="loader"></span>
+
+    <div class="logo">
+        <img src="{% static 'SVGs/matlab-svgrepo-com.svg' %}" alt="logo">
+    </div>
+
+  </div>
+
+  <div class="content">
+
+      <h1>LOGIN</h1>
+
+    <form method="post" class="login_fields">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="username" id="username" name='username'>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name='password'>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <div class="login_auth">
+
+        <h3>Login with</h3>
+
+        {% include 'social_auth.html' %}
+
+    </div>
+
+      <div class="sign_up">
+          <a href="{% url 'sign_up' %}">Don't have an account? Sign Up</a>
+      </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

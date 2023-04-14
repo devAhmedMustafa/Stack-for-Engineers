@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block title %}<title>Stack For Engineers | Home</title>{% endblock %}
+
+{% block content %}
+
+<link rel='stylesheet' href="{% static 'stylesheets/home.css' %}">
+
+{% include 'navbar.html' %}
+
+<div class="questions">
+
+    <h1>Top Questions</h1>
+
+    {% for question in questions %}
+    <div class="question">
+        <section class="stats">
+            {{question.num_of_likes}} likes {{question.number_of_answers}} answers
+        </section>
+        <a class="title" href="{% url 'question' question.pk %}">{{question.title}}</a>
+        <section class="user_details">
+            <a>{{question.publisher}}</a> <span style='font-size:5px;'>&#9899;</span> {{question.subject}}
+        </section>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock  %}
+
+{% block javascript %}
+{% endblock %}

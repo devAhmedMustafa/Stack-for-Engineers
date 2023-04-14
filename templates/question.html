@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}<title>Stack For Engineers | {{question.title}}</title>{% endblock %}
+
+{% block content %}
+
+<link rel='stylesheet' href="{% static 'stylesheets/question.css' %}">
+
+{% include 'navbar.html' %}
+
+  <div class="que_section">
+    <div class="question">
+      <section class="stats">
+        <h1>{{question.title}}</h1>
+        {{num_of_qlikes}} likes {{answersCount}} answers
+      </section>
+      <p>{{question.question_text}}</p>
+      <section class="user_details">
+        <a>{{question.publisher}}</a> <span style='font-size:5px;'>&#9899;</span> {{question.subject}}
+      </section>
+      <section class="like">
+        
+        {% if save_status %}
+        <button class="saves" value="saved"><img src="{% static 'SVGs/bookmark-saved.svg' %}" width="18px"></button>
+        <input class='s' type='number' value="{{question.pk}}">
+        {% else %}
+        <button class="saves" value="unsaved"><img src="{% static 'SVGs/bookmark-unsaved.svg' %}" width="18px"></button>
+        <input class='s' type='number' value="{{question.pk}}">
+        {% endif %}
+        
+        {% if question_like %}
+        <button class="reactions" value="liked"><img src="{% static 'SVGs/thumbs-up-liked.svg' %}" width="24px"></button>
+        <input class='r' type='number' value="{{question.pk}}">
+        {% else %}
+        <button class="reactions" value="unliked"><img src="{% static 'SVGs/thumbs-up-unliked.svg' %}" width="24px"></button>
+        <input class='r' type='number' value="{{question.pk}}">
+        {% endif %}
+
+        <input id='answer_field' type='text' placeholder="Type Your Answer Here">
+        <button id="post_answer" value="{{question.pk}}">Post</button>
+      </section>
+
+      <div class="answers">
+
+        <h1>{{answersCount}} Answers</h1>
+      {% for answer in answers %}
+        
+        <div class="answer">
+
+          <section class="user_details">
+            <img src="{% static 'SVGs/user_stroke.svg' %}" width='15px'>
+            {{answer.publisher}}
+          </section>
+  
+          <section class="stats">
+            {{answer.num_of_likes}} likes {{answer.number_of_comments}} Comments
+          </section>
+          <p>{{answer.answer_text}}</p>
+          
+          <section class="like comment_action">
+
+            <div class="reaction">
+              
+            </div>
+
+            <input type="text" class='comment_field' placeholder="Comment">
+            <button class='post_comment' value="{{answer.pk}}">Comment</button>
+            
+          </section>
+          {% if answer.number_of_comments != 0 %}
+          <button class="show_comments">Show comments..</button>
+          <button class="hide_comments">Hide comments..</button>
+          {% endif %}
+
+          <div class="comments">
+          {% for comment in comments %}
+          
+          {% if comment.answer == answer %}
+          
+            <div class="comment">
+              <p>{{comment.comment_text}}</p>
+              <h5>{{comment.pub_date}}</h5>
+            </div>
+
+          {% endif %}
+          {% endfor %}
+          </div>
+  
+        </div>
+  
+      
+      {% endfor %}
+      </div>
+    </div>
+
+    
+  </div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'Jscripts/comments_visibility.js' %}"></script>
+<script src="{% static 'Jscripts/answer_comment.js' %}"></script>
+<script src="{% static 'Jscripts/reactions.js' %}"></script>
+{% endblock %}

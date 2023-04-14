@@ -1,0 +1,56 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheets/authentications.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+
+      <span class="loader"></span>
+
+    <div class="logo">
+        <img src="{% static 'SVGs/matlab-svgrepo-com.svg' %}" alt="logo">
+    </div>
+
+  </div>
+
+  <div class="content">
+
+      <h1>SIGN UP</h1>
+
+    <form method="post" class="login_fields">
+        {% csrf_token %}
+        {{form}}
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <form method="post" class="login_auth">
+
+        <h3>Login with</h3>
+
+        {% include 'social_auth.html' %}
+
+    </form>
+
+      <div class="sign_up">
+          <a href="{% url 'login' %}">Already have an account? Login</a>
+      </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="{% static 'Jscripts/register_validation.js' %}"></script>

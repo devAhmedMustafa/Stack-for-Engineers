@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    font-family: roboto, serif;
+}
+
+body{
+    background-color: #f6f6f6;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f6f6f6;
+}
+
+.header{
+    background-color: #0B2545;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 20px 100px;
+    color: whitesmoke;
+}
+
+li{
+    list-style: none;
+    text-align: left;
+    padding: 10px 90px 10px 10px;
+    background-color: #f5f5f5;
+    border-right: 3px solid navajowhite;
+}
+
+ul{
+    text-align: center;
+    margin: 0;
+}
+
+input[type='search']{
+    width: 45%;
+    padding: 12px;
+    border-radius: 2px;
+    border: none;
+    margin: 10px;
+    grid-column: 1/3;
+}
+
+input[type='search']:focus{
+    outline: none;
+}
+
+.links{
+    margin: 20px;
+    color: navajowhite;
+}
+
+.links a{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.logo{
+    margin: 10px;
+    width: 160px;
+    margin: 10px auto 10px 10px;
+}
+
+a{
+    text-decoration: none;
+    color: navajowhite;
+}
+
+.userlist{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@media (max-width: 900px) {
+
+    .logo{
+        width: 70px
+    }
+
+    input[type='search']{
+        width: 100%;
+        margin:0;
+        border-radius: 0;
+        
+    }
+
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.links{
+    display: none;
+}
+
+.r{
+    display: none;
+}

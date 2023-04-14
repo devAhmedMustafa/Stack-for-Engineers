@@ -1,0 +1,151 @@
+*{
+    font-family: roboto, serif;
+}
+
+body{
+    background-color: #f6f6f6;
+}
+
+.container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.header, .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.header{
+    background-color: #0B2545;
+    flex-direction: column;
+}
+
+.logo img{
+    width: 200px;
+}
+
+.content{
+    flex-direction: column;
+    background-color: #f6f6f6;
+}
+
+.login_fields{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.login_fields label{
+    margin: 5px;
+    margin-top: 15px;
+}
+
+.login_fields input{
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.login_fields input:focus{
+    outline: none;
+}
+
+.login_fields button{
+    width: fit-content;
+    padding: 10px;
+    margin: 5px;
+}
+
+.login_auth{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login_auth a img{
+    width: 30px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.sign_up, .login{
+    margin: 15px;
+    cursor: pointer;
+}
+
+.loader {
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: relative;
+}
+
+.loader:before , .loader:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #FFF;
+    transform: translate(-50% , -100%)  scale(0);
+    animation: push_401 2s infinite linear;
+}
+
+.loader:after {
+    animation-delay: 1s;
+}
+
+@keyframes push_401 {
+    0% , 50% {
+        transform: translate(-50% , 0%)  scale(1)
+    }
+
+    100% {
+        transform: translate(-50%, -100%) scale(0)
+    }
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@media(max-width: 900px){
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .loader{
+        display: none;
+    }
+
+    .logo img{
+        width: 100px;
+    }
+
+}
+
+.helptext{
+    font-size: 12px;
+    margin: 5px;
+}
+
+br{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+}

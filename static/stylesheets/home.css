@@ -1,0 +1,56 @@
+.content{
+    flex-direction: row;
+}
+
+.navbar, .questions{
+    border-right: 1px solid #dadada;
+}
+
+.questions{
+    border-right: none;
+    padding-left:30px;
+}
+
+.questions h1{
+    margin: 0 0 20px;
+}
+
+.question{
+    border: 1px solid #e8e8e8;
+    padding: 15px;
+    border-bottom: none;
+}
+
+.stats{
+    color: #6e6e6e;
+}
+
+.title{
+    font-size: x-large;
+}
+
+.user_details{
+    margin: 20px 0;
+    font-size: math;
+}
+
+.content a{
+    color: black
+}
+
+.like{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.like button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .navbar{
+        display: none;
+    }
+}

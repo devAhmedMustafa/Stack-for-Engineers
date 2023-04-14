@@ -1,0 +1,10 @@
+{% load static %}
+{% load socialaccount %}
+
+<div class="icons">
+
+    <a href="{% provider_login_url 'google' %}"><img src="{% static 'SVGs/google.svg' %}"></a>
+    {% comment %} <a><img src="{% static 'SVGs/facebook.svg' %}"></a>
+    <a><img src="{% static 'SVGs/microsoft.svg' %}"></a> {% endcomment %}
+
+</div>
