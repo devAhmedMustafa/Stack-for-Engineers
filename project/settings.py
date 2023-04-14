@@ -16,7 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://stack-for-engineers.up.railway.app']
 
 REST_FRAMEWORK = {
 
