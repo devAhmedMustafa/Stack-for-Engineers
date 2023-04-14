@@ -168,5 +168,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
 
 # Django Allauth settings
-LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
