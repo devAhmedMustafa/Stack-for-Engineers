@@ -9,14 +9,8 @@ def home(request):
     user = request.user
 
     questions = Question.objects.annotate(number_of_answers=Count('answer', distinct=True), num_of_likes=Count('question_like', distinct=True))
-
-    likes = None
-    like_status = False
-    if QuestionLike.objects.filter(liked_by=user):
-        likes = QuestionLike.objects.filter(liked_by = user)
-        like_status = True
     
-    return render(request, 'home.html', {'user':user, 'questions':questions, 'likes':likes, 'like_status':like_status})
+    return render(request, 'home.html', {'user':user, 'questions':questions})
 
 
 def question(request, pk):
