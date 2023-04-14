@@ -10,7 +10,7 @@ def sign_up(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            auth_login(request, user)
             return redirect('home') 
     form = NewUserForm()
     return render(request, 'sign_up.html', {'form':form})
@@ -21,7 +21,7 @@ def login(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            auth_login(request, user)
             return redirect('home')
         else:
             return render(request, 'login.html', {'error': 'username or password is incorrect'})
