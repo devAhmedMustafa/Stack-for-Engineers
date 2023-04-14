@@ -55,13 +55,13 @@ questionContainer.forEach(function(question){
                 dataType: 'json',
                 data: {'status':status, 'pk':pk},
                 success: function(){
-                    if(status=='liked'){
-                        likeBtn.querySelector('img').src = '/static/SVGs/bookmark-unsaved.svg';
-                        likeBtn.value = 'unsaved';
+                    if(status=='saved'){
+                        saveBtn.querySelector('img').src = '/static/SVGs/bookmark-unsaved.svg';
+                        saveBtn.value = 'unsaved';
                     }
                     else{
-                        likeBtn.querySelector('img').src = '/static/SVGs/bookmark-saved.svg';
-                        likeBtn.value = 'saved';
+                        saveBtn.querySelector('img').src = '/static/SVGs/bookmark-saved.svg';
+                        saveBtn.value = 'saved';
                     }
                 }
             })
